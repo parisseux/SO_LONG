@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pchatagn <pchatagn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:29:12 by pchatagn          #+#    #+#             */
-/*   Updated: 2024/12/05 19:59:10 by pchatagn         ###   ########.fr       */
+/*   Updated: 2024/12/06 14:34:48 by parissachat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,25 @@
 # include <math.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <X11/Xlib.h>
+# include <X11/Xutil.h>
 
-typedef struct	s_data {
-    void	*mlx;
-	void	*win;
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-    int     color;
+typedef struct s_data {
+    void    *mlx;
+    void    *win;
+    void    *cursor_img;
+    int     cursor_width;
+    int     cursor_height;
+    void    *img;
+    char    *addr;
+    int     bits_per_pixel;
+    int     line_length;
+    int     endian;
     int     x;
-    int      y;
-	int width;
-	int height;
-}				t_data;
-
+    int     y;
+    int     height;
+    int     width;
+} t_data;
 
 //so_long
 void	ft_put_pixel(t_data *data, int x, int y, int color);
@@ -52,7 +55,6 @@ int ft_get_opposite(int color);
 int ft_close_window_escp(int key, t_data *data);
 int ft_close_window_cross(void);
 int ft_move(int key, t_data *data);
-void ft_clear_image(t_data *data, int color);
-
+void ft_clear_image(t_data *data);
 
 #endif

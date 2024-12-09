@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pchatagn <pchatagn@student.42.fr>          +#+  +:+       +#+         #
+#    By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:08:54 by pchatagn          #+#    #+#              #
-#    Updated: 2024/12/05 19:56:26 by pchatagn         ###   ########.fr        #
+#    Updated: 2024/12/06 14:36:37 by parissachat      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -Imlx/minilibx_opengl -Ilibraries/libft -Ilibraries/ft_printf -g
+CFLAGS = -Wall -Werror -Wextra -Imlx/minilibx_opengl -I/usr/X11/include -Ilibraries/libft -Ilibraries/ft_printf -g
 RM = rm -f
 SRCDIR = src
 OBJDIR = obj
@@ -32,7 +32,7 @@ all: $(NAME)
 	@echo $(SUCCESS)
 
 $(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF)
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(FT_PRINTF) -Lmlx/minilibx_opengl -lmlx -framework OpenGL -framework AppKit -lm -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(FT_PRINTF) -Lmlx/minilibx_opengl -lz -lmlx -framework OpenGL -framework AppKit -lm -o $(NAME)
 $(LIBFT):
 	@make all bonus -C $(LIBDIR)/libft
 
