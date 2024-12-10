@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
+/*   By: pchatagn <pchatagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:29:12 by pchatagn          #+#    #+#             */
-/*   Updated: 2024/12/06 14:34:48 by parissachat      ###   ########.fr       */
+/*   Updated: 2024/12/09 15:26:18 by pchatagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,12 @@
 # include <math.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include <X11/Xlib.h>
-# include <X11/Xutil.h>
+# include <unistd.h>
+# include <fcntl.h>
+
+# include "libft.h"
+# include "ft_printf.h"
+
 
 typedef struct s_data {
     void    *mlx;
@@ -35,7 +39,15 @@ typedef struct s_data {
     int     y;
     int     height;
     int     width;
+    int color;
 } t_data;
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
+
+//map checker
+int ft_check_map(char av);
 
 //so_long
 void	ft_put_pixel(t_data *data, int x, int y, int color);
@@ -56,5 +68,15 @@ int ft_close_window_escp(int key, t_data *data);
 int ft_close_window_cross(void);
 int ft_move(int key, t_data *data);
 void ft_clear_image(t_data *data);
+
+//GNL
+char	*get_trash(char *temp);
+char	*fill_use_buffer(int fd, char *temp, int i, char *buffer);
+char	*get_newline(char *temp);
+char	*get_next_line(int fd);
+int		ft_strchr_gnl(char *s);
+char	*ft_strjoin_gnl(char *temp, char *buff);
+int		ft_strlen_gnl(char *str);
+char	*ft_strjoin2_gnl(char *s, char *temp, char *buff);
 
 #endif

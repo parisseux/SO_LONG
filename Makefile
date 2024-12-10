@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+         #
+#    By: pchatagn <pchatagn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:08:54 by pchatagn          #+#    #+#              #
-#    Updated: 2024/12/06 14:36:37 by parissachat      ###   ########.fr        #
+#    Updated: 2024/12/09 14:23:28 by pchatagn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,22 @@ RM = rm -f
 SRCDIR = src
 OBJDIR = obj
 LIBDIR = libraries
+LIBFT = $(LIBDIR)/libft/libft.a
+FT_PRINTF = $(LIBDIR)/ft_printf/libftprintf.a
 
-FILES = so_long.c \
+FILES = main.c \
+		so_long.c \
 		color.c \
 		event.c \
-		utils.c 
+		utils.c \
+		get_next_line_utils.c \
+		get_next_line.c \
+		check_map.c
+
 
 SRC = $(addprefix $(SRCDIR)/, $(FILES))
 OBJ = $(addprefix $(OBJDIR)/, $(FILES:.c=.o))
+
 
 SUCCESS = "\033[1;35mSuccessful compilation!\033[0m"
 
@@ -45,7 +53,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
  
 	
 clean:
-	@$(RM) $(OBJ)
+	@$(RM) $(OBJ) 
 	@rmdir $(OBJDIR) 2>/dev/null || true  # Remove obj/ only if empty
 	@make -C $(LIBDIR)/libft clean
 	@make -C $(LIBDIR)/ft_printf clean
