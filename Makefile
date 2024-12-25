@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pchatagn <pchatagn@student.42.fr>          +#+  +:+       +#+         #
+#    By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:08:54 by pchatagn          #+#    #+#              #
-#    Updated: 2024/12/09 14:23:28 by pchatagn         ###   ########.fr        #
+#    Updated: 2024/12/19 22:23:50 by parissachat      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,17 +22,16 @@ FT_PRINTF = $(LIBDIR)/ft_printf/libftprintf.a
 
 FILES = main.c \
 		so_long.c \
-		color.c \
+		so_long2.c \
 		event.c \
-		utils.c \
+		free.c \
 		get_next_line_utils.c \
 		get_next_line.c \
-		check_map.c
-
+		map_utils.c \
+		map_utils2.c
 
 SRC = $(addprefix $(SRCDIR)/, $(FILES))
 OBJ = $(addprefix $(OBJDIR)/, $(FILES:.c=.o))
-
 
 SUCCESS = "\033[1;35mSuccessful compilation!\033[0m"
 
@@ -50,7 +49,6 @@ $(FT_PRINTF):
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)  # Ensure obj/ directory exists
 	@$(CC) $(CFLAGS) -c $< -o $@
- 
 	
 clean:
 	@$(RM) $(OBJ) 

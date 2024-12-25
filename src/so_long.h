@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pchatagn <pchatagn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:29:12 by pchatagn          #+#    #+#             */
-/*   Updated: 2024/12/09 15:26:18 by pchatagn         ###   ########.fr       */
+/*   Updated: 2024/12/22 21:34:56 by parissachat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,51 +23,67 @@
 # include "libft.h"
 # include "ft_printf.h"
 
+typedef struct s_sprites
+{
+    void *player;
+    void *wall;
+    void *collectible;
+    void *exit;
+    void *empty;
+    void *ennemies;
+    void *background;
+} t_sprites;
+
+typedef struct s_int {
+    int i;
+    int j;
+    int p;
+    int e;
+    int c;
+    int x;
+    int y;
+}   t_int;
 
 typedef struct s_data {
     void    *mlx;
     void    *win;
-    void    *cursor_img;
-    int     cursor_width;
-    int     cursor_height;
-    void    *img;
-    char    *addr;
-    int     bits_per_pixel;
-    int     line_length;
-    int     endian;
-    int     x;
-    int     y;
-    int     height;
-    int     width;
-    int color;
+    char    **map;
+    int		heightmap;
+	int		widthmap;
+	int		fd;
+    int     player_x;
+    int     player_y;  
+    t_sprites sprites;
+    
 } t_data;
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
 # endif
 
-//map checker
-int ft_check_map(char av);
+//map
+char    **ft_get_map(char *file_path, t_data *game);
+char    *ft_read_and_join(int fd);
+void    ft_free_map(char **map);
+int     ft_check_map(t_data *game, char *file_name);
+int     ft_check_object(t_data *game);
+int     ft_check_wall_up_down(t_data *game);
+int     ft_check_wall_left_right(t_data *game);
+int     ft_check_rectangle(t_data *game);
+int     ft_check_format_ber(char *file_name);
 
 //so_long
-void	ft_put_pixel(t_data *data, int x, int y, int color);
-void	ft_draw_circle(t_data *data, int center_x, int center_y, int radius, int color);
-void    ft_draw_rectangle(t_data *data, int x, int y, int width, int height, int color);
-
-//colors
-int	create_trgb(unsigned char t, unsigned char r, unsigned char g, unsigned char b);
-unsigned char	get_t(int trgb);
-unsigned char	get_r(int trgb);
-unsigned char	get_g(int trgb);
-unsigned char	get_b(int trgb);
-int    ft_add_shade(double distance, int color);
-int ft_get_opposite(int color);
+void    ft_initiate_game(t_data *game);
+void    ft_load_sprites(t_data *game);
+void    ft_free_sprites(t_data *game);
+void    ft_draw_game(t_data *game);
+int     ft_loop_hook(t_data *game);
+void    ft_find_position_player_init(t_data *game);
 
 //event
-int ft_close_window_escp(int key, t_data *data);
-int ft_close_window_cross(void);
-int ft_move(int key, t_data *data);
-void ft_clear_image(t_data *data);
+int     ft_close_window_escp(int key, t_data *game);
+int     ft_close_window_cross(t_data *game);
+int     ft_move(int key, t_data *data);
 
 //GNL
 char	*get_trash(char *temp);
