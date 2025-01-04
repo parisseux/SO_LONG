@@ -6,7 +6,7 @@
 /*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 12:26:16 by pchatagn          #+#    #+#             */
-/*   Updated: 2024/12/22 21:20:57 by parissachat      ###   ########.fr       */
+/*   Updated: 2025/01/03 18:28:47 by parissachat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ int ft_check_map(t_data *game, char *file_name)
         return (0);
     if (ft_check_rectangle(game) == 0)
         return (0);
+    if (ft_check_tiles(game) == 0)
+        return (0);
+    if (ft_check_valid_path(game) == 0)
+        return (0);
     return (1);
 }
 char *ft_read_and_join(int fd)
@@ -75,7 +79,7 @@ char **ft_get_map(char *file_path, t_data *game)
 
     game->fd = open(file_path, O_RDONLY);
     if (game->fd < 0)
-        return (NULL);
+        exit (1);
     map_temp = ft_read_and_join(game->fd);
     close(game->fd);
     game->map = ft_split(map_temp, '\n');

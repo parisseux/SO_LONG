@@ -6,7 +6,7 @@
 /*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:44:59 by parissachat       #+#    #+#             */
-/*   Updated: 2024/12/19 18:45:37 by parissachat      ###   ########.fr       */
+/*   Updated: 2025/01/03 17:24:15 by parissachat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,19 @@ void ft_free_map(char **map)
     }
     free(map);
 }
+void  ft_free_grid(char **grid, int n)
+{
+    int i; 
+    
+    if (!grid)
+        return;
+    i = 0;
+    while (i < n)
+    {
+        if (grid[i])
+            free(grid[i]);
+        i++;
+    }
+    free(grid);  
+}
+

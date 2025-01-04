@@ -6,7 +6,7 @@
 /*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 12:27:18 by parissachat       #+#    #+#             */
-/*   Updated: 2024/12/18 15:51:24 by parissachat      ###   ########.fr       */
+/*   Updated: 2025/01/03 16:26:05 by parissachat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int ft_check_object(t_data *game)
         }
         x.i++;
     }
+    game->n_collectibles = x.c;
     if (x.c >= 1 && x.e == 1 && x.p == 1)
         return (1);
     return (0);
@@ -86,5 +87,29 @@ int ft_check_format_ber(char *file_name)
         return (0);
     if (ft_strncmp(ext, ".ber", 5) != 0)
         return (0);
+    return (1);
+}
+
+int ft_check_tiles(t_data *game)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while (game->map[i])
+    {
+        j = 0;
+        while (game->map[i][j])
+        {
+            if (game->map[i][j] != '1' && game->map[i][j] != '0' 
+                && game->map[i][j] != 'P' && game->map[i][j] != 'C' && game->map[i][j] != 'E' 
+                && game->map[i][j] != 'X')
+                {
+                     return (0);
+                }
+                j++;
+        }
+        i++;
+    }
     return (1);
 }

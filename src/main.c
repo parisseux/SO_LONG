@@ -6,7 +6,7 @@
 /*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 12:16:39 by pchatagn          #+#    #+#             */
-/*   Updated: 2024/12/19 12:16:19 by parissachat      ###   ########.fr       */
+/*   Updated: 2025/01/01 22:55:24 by parissachat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int ac, char **av)
     if (ac != 2)
     {
         ft_printf("Usage: ./so_long ./map_path/map.ber\n");
-        return (1);
+        exit (1);
     }
     game = malloc(sizeof(t_data));
     ft_bzero(game, sizeof(t_data));
@@ -27,7 +27,7 @@ int main(int ac, char **av)
     if (ft_check_map(game, av[1]) == 0)
     {
         ft_printf("Error: Invalid map.\n");
-        return (1);
+        exit (1);
     }
     else
         ft_initiate_game(game);

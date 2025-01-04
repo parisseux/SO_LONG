@@ -6,7 +6,7 @@
 #    By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:08:54 by pchatagn          #+#    #+#              #
-#    Updated: 2024/12/19 22:23:50 by parissachat      ###   ########.fr        #
+#    Updated: 2025/01/03 13:21:52 by parissachat      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ FILES = main.c \
 		get_next_line_utils.c \
 		get_next_line.c \
 		map_utils.c \
-		map_utils2.c
+		map_utils2.c \
+		map_utils3.c 
 
 SRC = $(addprefix $(SRCDIR)/, $(FILES))
 OBJ = $(addprefix $(OBJDIR)/, $(FILES:.c=.o))
