@@ -6,7 +6,7 @@
 /*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:21:40 by parissachat       #+#    #+#             */
-/*   Updated: 2025/01/03 18:29:07 by parissachat      ###   ########.fr       */
+/*   Updated: 2025/01/05 18:51:25 by parissachat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void ft_dfs_algo(int x, int y, t_data *game, char **grid)
     grid[y][x] = 'T';
     if (game->map[y][x] == 'C' || game->map[y][x] == 'E')
         game->n_object_path++;
-        
     ft_dfs_algo(x - 1, y, game, grid);
     ft_dfs_algo(x + 1, y, game, grid);
     ft_dfs_algo(x, y - 1, game, grid);
@@ -68,13 +67,10 @@ int ft_check_valid_path(t_data *game)
     y = game->player_y;
     grid = create_checker_grid(game);
     if (!grid)
-    {
         return (0);
-    }
     ft_dfs_algo(x / 32, y / 32, game, grid);
     ft_free_grid(grid, game->heightmap);
     if (game->n_object_path == (game->n_collectibles + 1))
         return (1);
-    else
-        return (0);
+    return (0);
 }

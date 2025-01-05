@@ -6,7 +6,7 @@
 /*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:30:33 by pchatagn          #+#    #+#             */
-/*   Updated: 2025/01/03 18:29:38 by parissachat      ###   ########.fr       */
+/*   Updated: 2025/01/05 19:02:32 by parissachat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void ft_find_position_player_init(t_data *game)
             {
                 game->player_x = m.x * 32;
                 game->player_y = m.y * 32;
+                return ;
             }
             m.x++;
         }
@@ -90,13 +91,11 @@ void    ft_load_sprites(t_data *game)
     game->sprites.exit = mlx_xpm_file_to_image(game->mlx, "./sprites/exit.xpm", &width, &height);
     game->sprites.ennemies = mlx_xpm_file_to_image(game->mlx, "./sprites/ennemies.xpm", &width, &height);
     game->sprites.background = mlx_xpm_file_to_image(game->mlx, "./sprites/background.xpm", &width, &height);
-    ft_find_position_player_init(game);
 }
 void ft_initiate_game(t_data *game)
 {
     game->mlx = mlx_init();
     game->win = mlx_new_window(game->mlx, game->widthmap * 32 , (game->heightmap + 1 + 1) * 32, "Mermaid World! <3");
-   
     ft_load_sprites(game);
     ft_draw_background(game);
     mlx_hook(game->win, 2, 1L << 0, &ft_close_window_escp, game);

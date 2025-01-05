@@ -6,7 +6,7 @@
 /*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:29:12 by pchatagn          #+#    #+#             */
-/*   Updated: 2025/01/04 11:58:24 by parissachat      ###   ########.fr       */
+/*   Updated: 2025/01/05 18:43:57 by parissachat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,10 @@ typedef struct s_data {
     int         n_object_collected;
     int         n_object_path;
     int         moves;
+    char        *moves_str;
+    char        *obj_str;
     
 } t_data;
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
-# endif
 
 //map
 char    **ft_get_map(char *file_path, t_data *game);
@@ -92,21 +90,14 @@ int     ft_finish_game(t_data *game);
 int     ft_killed_by_ennemies(t_data *game);
 void    ft_count_move(int key, t_data *game);
 void    ft_count_obj_collected(t_data *game, int new_x, int new_y);
+void    ft_put_str_to_win(t_data *game);
+void    ft_cleanup_game(t_data *game);
+
 
 //event
 int     ft_close_window_escp(int key, t_data *game);
 int     ft_close_window_cross(t_data *game);
 int     ft_move(int key, t_data *data);
-void     ft_new_position_player(int key, int old_x, int old_y, t_data *game);
-
-//GNL
-char	*get_trash(char *temp);
-char	*fill_use_buffer(int fd, char *temp, int i, char *buffer);
-char	*get_newline(char *temp);
-char	*get_next_line(int fd);
-int		ft_strchr_gnl(char *s);
-char	*ft_strjoin_gnl(char *temp, char *buff);
-int		ft_strlen_gnl(char *str);
-char	*ft_strjoin2_gnl(char *s, char *temp, char *buff);
+void    ft_new_position_player(int key, int old_x, int old_y, t_data *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:44:59 by parissachat       #+#    #+#             */
-/*   Updated: 2025/01/03 17:24:15 by parissachat      ###   ########.fr       */
+/*   Updated: 2025/01/05 18:43:44 by parissachat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,12 @@ void  ft_free_grid(char **grid, int n)
     free(grid);  
 }
 
+void ft_cleanup_game(t_data *game)
+{
+    if (game->win)
+        mlx_destroy_window(game->mlx, game->win);
+    if (game->map)
+        ft_free_map(game->map);
+    ft_free_sprites(game);
+    free(game);
+}
