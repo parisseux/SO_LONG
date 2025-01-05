@@ -6,13 +6,13 @@
 #    By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:08:54 by pchatagn          #+#    #+#              #
-#    Updated: 2025/01/03 13:21:52 by parissachat      ###   ########.fr        #
+#    Updated: 2025/01/05 15:02:24 by parissachat      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -Imlx/minilibx_opengl -I/usr/X11/include -Ilibraries/libft -Ilibraries/ft_printf -g
+CFLAGS = -Wall -Werror -Wextra -Imlx/minilibx_opengl -I/usr/X11/include -Ilibraries/libft -Ilibraries/ft_printf -fsanitize=address -g
 RM = rm -f
 SRCDIR = src
 OBJDIR = obj
@@ -23,10 +23,9 @@ FT_PRINTF = $(LIBDIR)/ft_printf/libftprintf.a
 FILES = main.c \
 		so_long.c \
 		so_long2.c \
+		so_long3.c \
 		event.c \
 		free.c \
-		get_next_line_utils.c \
-		get_next_line.c \
 		map_utils.c \
 		map_utils2.c \
 		map_utils3.c 
