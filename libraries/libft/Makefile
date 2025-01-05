@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pchatagn <pchatagn@student.42.fr>          +#+  +:+       +#+         #
+#    By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/04 09:30:05 by pchatagn          #+#    #+#              #
-#    Updated: 2024/12/05 15:25:59 by pchatagn         ###   ########.fr        #
+#    Updated: 2025/01/04 15:15:59 by parissachat      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,8 @@ FILES = ft_atoi \
 				ft_putstr_fd \
 				ft_putendl_fd \
 				ft_putnbr_fd \
+				get_next_line_utils \
+				get_next_line \
 
 FILESBONUS = ft_lstnew \
 			ft_lstadd_front \

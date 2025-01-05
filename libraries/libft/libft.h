@@ -6,7 +6,7 @@
 /*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 12:12:29 by pchatagn          #+#    #+#             */
-/*   Updated: 2024/12/18 14:44:59 by parissachat      ###   ########.fr       */
+/*   Updated: 2025/01/05 13:31:26 by parissachat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
 
 typedef struct s_list
 {
@@ -28,7 +33,7 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-int	ft_strlen(const char *str);
+int		ft_strlen(const char *str);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
@@ -70,5 +75,15 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+//GNL
+char	*get_trash(char *temp);
+char	*fill_use_buffer(int fd, char *temp, int i, char *buffer);
+char	*get_newline(char *temp);
+char	*get_next_line(int fd);
+int		ft_strchr_gnl(char *s);
+char	*ft_strjoin_gnl(char *temp, char *buff);
+int		ft_strlen_gnl(char *str);
+char	*ft_strjoin2_gnl(char *s, char *temp, char *buff);
 
 #endif
