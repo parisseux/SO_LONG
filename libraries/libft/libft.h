@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
+/*   By: pchatagn <pchatagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 12:12:29 by pchatagn          #+#    #+#             */
-/*   Updated: 2025/01/05 13:31:26 by parissachat      ###   ########.fr       */
+/*   Updated: 2025/01/06 15:11:58 by pchatagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5

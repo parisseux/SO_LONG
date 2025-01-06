@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parissachatagny <parissachatagny@studen    +#+  +:+       +#+        */
+/*   By: pchatagn <pchatagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 14:41:49 by pchatagn          #+#    #+#             */
-/*   Updated: 2025/01/04 15:16:16 by parissachat      ###   ########.fr       */
+/*   Updated: 2025/01/06 15:13:16 by pchatagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ char	*ft_strjoin_gnl(char *temp, char *buff)
 	}
 	if (!buff)
 		return (NULL);
-	s = (char *)malloc((ft_strlen_gnl(temp) + ft_strlen_gnl(buff) + 1) * sizeof(char));
+	s = (char *)malloc((ft_strlen_gnl(temp)
+				+ ft_strlen_gnl(buff) + 1) * sizeof(char));
 	if (!s)
 	{
 		free(temp);
