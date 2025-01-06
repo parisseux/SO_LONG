@@ -6,7 +6,7 @@
 /*   By: pchatagn <pchatagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 17:50:40 by pchatagn          #+#    #+#             */
-/*   Updated: 2025/01/06 14:48:07 by pchatagn         ###   ########.fr       */
+/*   Updated: 2025/01/06 17:13:58 by pchatagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ int	ft_move(int key, t_data *game)
 		game->player_x += 32;
 	else if (key == 13)
 		game->player_y -= 32;
+	else 
+		return (0);
 	if (game->map[game->player_y / 32][game->player_x / 32] == '1'
 			|| (game->map[game->player_y / 32][game->player_x / 32] == 'E'
 			&& game->n_collectibles != game->n_object_collected))
